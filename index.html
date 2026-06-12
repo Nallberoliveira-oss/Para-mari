@@ -56,170 +56,113 @@ position:fixed;
 top:-10px;
 color:red;
 animation:fall linear forwards;
+font-size:20px;
 }
 
 @keyframes fall{
 to{transform:translateY(110vh);}
 }
 
+iframe{
+border-radius:15px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- MUSICA -->
-<audio id="musica" loop>
-<source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<!-- TELA INICIAL -->
+<!-- ENTRADA -->
 <div id="entrada">
 <h1>❤️ Para Mari ❤️</h1>
-<p>Um presente especial para você...</p>
+<p>Um presente especial pra você...</p>
 <button onclick="entrar()">Entrar 💖</button>
 </div>
 
 <!-- CONTEUDO -->
 <div id="conteudo">
 
-<h1>Feliz Dia dos Namorados ❤️</h1>
-<h2>Para minha Mari</h2>
+<h1>💖 Nosso cantinho 💖</h1>
 
+<!-- MUSICA -->
 <div class="card">
+<h2>🎵 Nossa música</h2>
+<iframe width="300" height="170"
+src="https://www.youtube.com/embed/-UQ9H2iWb4A"
+title="A Thousand Years"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+</div>
+
+<!-- CONTADOR -->
+<div class="card">
+<h2>⏳ Nosso tempo juntos</h2>
+<p id="contador"></p>
+</div>
+
+<!-- CARTA -->
+<div class="card">
+<h2>💌 Carta</h2>
 <p>
-Desde que te conheci através de amigos,
-minha vida ficou mais leve e feliz.
+Mari, você é a melhor parte dos meus dias.<br>
+Mesmo longe, você sempre está comigo.<br><br>
+Eu te amo ❤️
 </p>
 </div>
 
+<!-- FOTOS -->
 <div class="card">
-  <h1>💖 Nosso tempo juntos 💖</h1>
-
-  <div id="contador"></div>
-
-  <p class="frase">Cada segundo com você vale tudo ❤️</p>
+<h2>📸 Nossas fotos</h2>
+<img src="img_1.jpeg">
+<img src="img_2.jpeg">
+<img src="img_3.jpeg">
+<img src="IMG_7011.jpeg">
+<img src="IMG_6236.jpeg">
 </div>
 
-<style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#ff6b9d,#ff8fab,#ffc2d1);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-
-.card{
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-  color:white;
-  box-shadow:0 0 25px rgba(0,0,0,0.2);
-  width:300px;
-}
-
-h1{
-  font-size:18px;
-  margin-bottom:15px;
-  animation:pulse 1.5s infinite;
-}
-
-#contador{
-  font-size:20px;
-  font-weight:bold;
-  line-height:1.6;
-}
-
-.frase{
-  margin-top:15px;
-  font-size:14px;
-  opacity:0.9;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-  100%{transform:scale(1);}
-}
-</style>
+</div>
 
 <script>
-const inicio = new Date("2025-09-17T19:00:00");
+
+// DATA DO NAMORO
+let inicio = new Date("2025-09-17T19:00:00");
 
 function atualizar(){
-  const agora = new Date();
-  const diff = agora - inicio;
 
-  const dias = Math.floor(diff / (1000*60*60*24));
-  const horas = Math.floor(diff / (1000*60*60)) % 24;
-  const minutos = Math.floor(diff / (1000*60)) % 60;
-  const segundos = Math.floor(diff / 1000) % 60;
+let agora = new Date();
+let diff = agora - inicio;
 
-  document.getElementById("contador").innerHTML =
-    `${dias} dias<br>${horas}h ${minutos}m ${segundos}s`;
+let anos = agora.getFullYear() - inicio.getFullYear();
+let meses = agora.getMonth() - inicio.getMonth();
+let dias = agora.getDate() - inicio.getDate();
+
+if(dias < 0){
+meses--;
+dias += 30;
+}
+
+if(meses < 0){
+anos--;
+meses += 12;
+}
+
+let horas = Math.floor(diff / (1000*60*60)) % 24;
+let minutos = Math.floor(diff / (1000*60)) % 60;
+let segundos = Math.floor(diff / 1000) % 60;
+
+document.getElementById("contador").innerHTML = `
+💖 ${anos} anos, ${meses} meses e ${dias} dias 💖<br>
+⏰ ${horas}h ${minutos}m ${segundos}s juntos
+`;
 }
 
 atualizar();
 setInterval(atualizar, 1000);
-</script>
-
-<div class="card">
-<h2>💌 Carta para você</h2>
-<p>
-Mari, você é uma das melhores partes dos meus dias.
-Mesmo longe, você está sempre comigo.
-Eu te amo ❤️
-<br><br>
-— Nallber
-</p>
-</div>
-
-<div class="card">
-<h2>📸 Nossas fotos</h2>
-<img src="IMG_6236.jpeg">
-<img src="img_1.jpeg">
-<img src="IMG_7012.jpeg">
-<img src="img_2.jpeg">
-<img src="img_3.jpeg">
-<img src="img_4.jpeg">
-<img src="img_5.jpeg">
-</div>
-
-<div class="card">
-<h2>🎁 Surpresa</h2>
-<button onclick="surpresa()">Clique aqui ❤️</button>
-<p id="msg" style="display:none;margin-top:15px;">
-Você é meu melhor destino ❤️
-</p>
-</div>
-<div class="card">
-<h2>🎵 Nossa música</h2>
-
-<button onclick="window.open('https://www.youtube.com/watch?v=rtOvBOTyX00','_blank')">
-Ouvir nossa música ❤️
-</button>
-
-</div>
-</div>
-
-<script>
 
 // ENTRAR
 function entrar(){
 document.getElementById("entrada").style.display="none";
 document.getElementById("conteudo").style.display="block";
-
-// musica (pode falhar em alguns celulares se não clicar)
-document.getElementById("musica").play();
-}
-
-// SURPRESA
-function surpresa(){
-document.getElementById("msg").style.display="block";
 }
 
 // CORAÇÕES
