@@ -93,9 +93,79 @@ minha vida ficou mais leve e feliz.
 </div>
 
 <div class="card">
-<h2>⏳ Nosso tempo juntos</h2>
-<p id="contador"></p>
+  <h1>💖 Nosso tempo juntos 💖</h1>
+
+  <div id="contador"></div>
+
+  <p class="frase">Cada segundo com você vale tudo ❤️</p>
 </div>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#ff6b9d,#ff8fab,#ffc2d1);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.card{
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding:30px;
+  border-radius:20px;
+  text-align:center;
+  color:white;
+  box-shadow:0 0 25px rgba(0,0,0,0.2);
+  width:300px;
+}
+
+h1{
+  font-size:18px;
+  margin-bottom:15px;
+  animation:pulse 1.5s infinite;
+}
+
+#contador{
+  font-size:20px;
+  font-weight:bold;
+  line-height:1.6;
+}
+
+.frase{
+  margin-top:15px;
+  font-size:14px;
+  opacity:0.9;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
+}
+</style>
+
+<script>
+const inicio = new Date("2025-09-17T19:00:00");
+
+function atualizar(){
+  const agora = new Date();
+  const diff = agora - inicio;
+
+  const dias = Math.floor(diff / (1000*60*60*24));
+  const horas = Math.floor(diff / (1000*60*60)) % 24;
+  const minutos = Math.floor(diff / (1000*60)) % 60;
+  const segundos = Math.floor(diff / 1000) % 60;
+
+  document.getElementById("contador").innerHTML =
+    `${dias} dias<br>${horas}h ${minutos}m ${segundos}s`;
+}
+
+atualizar();
+setInterval(atualizar, 1000);
+</script>
 
 <div class="card">
 <h2>💌 Carta para você</h2>
@@ -137,17 +207,6 @@ Ouvir nossa música ❤️
 </div>
 
 <script>
-
-// DATA
-let inicio = new Date("2025-09-17");
-
-function atualizar(){
-let hoje = new Date();
-let diff = Math.floor((hoje - inicio)/(1000*60*60*24));
-document.getElementById("contador").innerText =
-diff + " dias com você ❤️";
-}
-atualizar();
 
 // ENTRAR
 function entrar(){
