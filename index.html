@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,206 +7,164 @@
 <title>Para Mari ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
-
 body{
-background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 color:white;
 text-align:center;
 overflow-x:hidden;
 }
 
-.hero{
-padding:60px 20px;
-}
-
-h1{
-font-size:3rem;
-margin-bottom:15px;
-}
-
-h2{
-margin-top:30px;
-}
-
-p{
-max-width:800px;
-margin:15px auto;
-line-height:1.6;
-padding:0 15px;
-}
-
-.gallery{
+#entrada{
+height:100vh;
 display:flex;
-flex-wrap:wrap;
+flex-direction:column;
 justify-content:center;
-gap:15px;
-padding:20px;
-}
-
-.gallery img{
-width:300px;
-max-width:90%;
-border-radius:20px;
-box-shadow:0 5px 20px rgba(0,0,0,.3);
-}
-
-.card{
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(10px);
-margin:20px;
-padding:25px;
-border-radius:20px;
+align-items:center;
 }
 
 button{
 padding:15px 25px;
-font-size:18px;
 border:none;
 border-radius:30px;
+font-size:18px;
 cursor:pointer;
-background:#fff;
-color:#ff4f7b;
-font-weight:bold;
-margin-top:20px;
+margin-top:15px;
 }
 
-#surpresa{
+.card{
+background:rgba(255,255,255,0.15);
+padding:20px;
+margin:20px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+img{
+width:250px;
+border-radius:15px;
+margin:10px;
+}
+
+#conteudo{
 display:none;
-font-size:1.4rem;
 padding:20px;
 }
 
 .heart{
 position:fixed;
-top:-20px;
+top:-10px;
 color:red;
-animation:fall linear infinite;
+animation:fall linear forwards;
 }
 
 @keyframes fall{
-to{
-transform:translateY(110vh);
+to{transform:translateY(110vh);}
 }
-}
+
 </style>
 </head>
+
 <body>
 
-<div class="hero">
-<h1>❤️ Feliz Dia dos Namorados ❤️</h1>
+<!-- MUSICA -->
+<audio id="musica" loop>
+<source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<!-- TELA INICIAL -->
+<div id="entrada">
+<h1>❤️ Para Mari ❤️</h1>
+<p>Um presente especial para você...</p>
+<button onclick="entrar()">Entrar 💖</button>
+</div>
+
+<!-- CONTEUDO -->
+<div id="conteudo">
+
+<h1>Feliz Dia dos Namorados ❤️</h1>
 <h2>Para minha Mari</h2>
 
+<div class="card">
 <p>
-Há 9 meses, através de amigos, conheci uma pessoa incrível.
-Uma pessoa que transformou meus dias, meus pensamentos e meus planos.
+Desde que te conheci através de amigos,
+minha vida ficou mais leve e feliz.
 </p>
-
-<p>
-Mesmo quando estamos longe, você continua sendo uma das presenças mais importantes da minha vida.
-A distância nunca diminuiu o que sinto por você.
-</p>
+</div>
 
 <div class="card">
-<h2>⏳ Nosso Tempo Juntos</h2>
+<h2>⏳ Nosso tempo juntos</h2>
 <p id="contador"></p>
 </div>
 
 <div class="card">
-<h2>❤️ 9 coisas que amo em você</h2>
-
-<p>❤️ Seu sorriso</p>
-<p>❤️ Seu olhar</p>
-<p>❤️ Seu carinho</p>
-<p>❤️ Sua companhia</p>
-<p>❤️ Sua sinceridade</p>
-<p>❤️ Seu jeito especial</p>
-<p>❤️ Nossas conversas</p>
-<p>❤️ Nossos momentos juntos</p>
-<p>❤️ Você ser exatamente quem é</p>
-</div>
-
-<h2>📸 Nossas Memórias</h2>
-
-<div class="gallery">
-<img src="foto1.jpg">
-<img src="foto2.jpg">
-<img src="foto3.jpg">
+<h2>💌 Carta para você</h2>
+<p>
+Mari, você é uma das melhores partes dos meus dias.
+Mesmo longe, você está sempre comigo.
+Eu te amo ❤️
+<br><br>
+— Nallber
+</p>
 </div>
 
 <div class="card">
-<h2>💌 Carta para você</h2>
-
-<p>
-Mari, obrigado por cada conversa, cada sorriso, cada momento compartilhado.
-Você fez esses meses serem especiais de uma forma que eu nunca vou esquecer.
-</p>
-
-<p>
-Espero que nossa história continue crescendo, com muitos encontros,
-viagens, fotos e memórias para guardar.
-</p>
-
-<p>
-Eu te amo ❤️
-</p>
-
-<p>
-Com amor,<br>
-Nallber ❤️
-</p>
+<h2>📸 Nossas fotos</h2>
+<img src="img_6236jpg">
+<img src="img_7011jpg">
+<img src="img_7012jpg">
 </div>
 
-<button onclick="mostrarSurpresa()">
-Clique aqui ❤️
-</button>
-
-<div id="surpresa">
-✨ Você é meu lugar favorito, mesmo quando está longe. ✨
-</div>
-
-<p style="margin-top:30px;">
-🎵 Ouçam juntos "A Thousand Years"
+<div class="card">
+<h2>🎁 Surpresa</h2>
+<button onclick="surpresa()">Clique aqui ❤️</button>
+<p id="msg" style="display:none;margin-top:15px;">
+Você é meu melhor destino ❤️
 </p>
+</div>
 
 </div>
 
 <script>
-const inicio = new Date("2025-09-17");
 
-function atualizarContador(){
-const hoje = new Date();
-const diff = hoje - inicio;
+// DATA
+let inicio = new Date("2025-09-17");
 
-const dias = Math.floor(diff/(1000*60*60*24));
+function atualizar(){
+let hoje = new Date();
+let diff = Math.floor((hoje - inicio)/(1000*60*60*24));
+document.getElementById("contador").innerText =
+diff + " dias com você ❤️";
+}
+atualizar();
 
-document.getElementById("contador").innerHTML =
-dias + " dias ao seu lado ❤️";
+// ENTRAR
+function entrar(){
+document.getElementById("entrada").style.display="none";
+document.getElementById("conteudo").style.display="block";
+
+// musica (pode falhar em alguns celulares se não clicar)
+document.getElementById("musica").play();
 }
 
-atualizarContador();
-
-function mostrarSurpresa(){
-document.getElementById("surpresa").style.display="block";
+// SURPRESA
+function surpresa(){
+document.getElementById("msg").style.display="block";
 }
 
-function criarCoracao(){
-const heart=document.createElement("div");
+// CORAÇÕES
+function criar(){
+let heart=document.createElement("div");
 heart.classList.add("heart");
 heart.innerHTML="❤️";
 heart.style.left=Math.random()*100+"vw";
 heart.style.animationDuration=(Math.random()*3+2)+"s";
 document.body.appendChild(heart);
-
 setTimeout(()=>heart.remove(),5000);
 }
+setInterval(criar,300);
 
-setInterval(criarCoracao,300);
 </script>
 
 </body>
